@@ -9,57 +9,60 @@
         body, html {
             margin: 0;
             padding: 0;
+            height: 100%;
+        }
+
+        #container {
+            display: flex;
+            height: 100%;
         }
 
         #map {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            width: 100%;
-            height: 100%;
+            flex-grow: 1;
         }
 
         #info-panel {
-            position: absolute;
-            top: 0;
-            left: 0;
             width: 300px;
-            height: 100%;
-            background-color: rgb(156, 188, 131);
+            background-color: white;
             padding: 20px;
             overflow-y: auto;
-            box-shadow: 0 0 10px rgba(122, 28, 28, 0.2);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
             font-family: Arial, sans-serif;
         }
 
+
+    
         #info-panel h2 {
             margin-top: 0;
             color: #3b7bbf;
         }
-
+    
         #info-panel ul {
             list-style-type: none;
             padding: 0;
         }
-
+    
         #info-panel li {
             margin-bottom: 10px;
         }
-
+    
         #info-panel .property-label {
             font-weight: bold;
             color: #3b7bbf;
         }
-
     </style>
+    
 </head>
 <body>
-    <div id="info-panel">
-        <h2>Feature Information</h2>
-        <ul id="feature-properties"></ul>
+    <div id="container">
+        <div id="info-panel">
+            <h2>Feature Information</h2>
+            <ul id="feature-properties"></ul>
+        </div>
+        <div id="map"></div>
     </div>
-    <div id="map"></div>
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js'></script>
     <script src="main.js"></script>
 </body>
+
 </html>

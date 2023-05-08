@@ -58,10 +58,25 @@ const panelProperties = {
 map.on('click', 'displacement', (e) => {
     // Get the properties of the clicked feature
     const properties = e.features[0].properties;
-    
+    // Generate the content for the info panel
+    let infoPanelContent = '<h3>Feature Information</h3><ul>';
+    for (const property in properties) {
+        infoPanelContent += `<li>${property}: ${properties[property]}</li>`;
+    }
+    // for (const originalProperty in panelProperties) {
+    //     if (properties.hasOwnProperty(originalProperty)) {
+    //         const displayName = panelProperties[originalProperty];
+    //         infoPanelContent += `<li><strong>${displayName}:</strong> ${properties[originalProperty]}</li>`;
+    //     }
+    // }
+    infoPanelContent += '</ul>';
+    // Set the info panel content
+    document.getElementById('feature-properties').innerHTML = infoPanelContent;
+});
 
+map.on('mousemove', 'displacement', (e) => {
     // Generate the content for the popup
-    
+    const properties = e.features[0].properties;
     let popupContent = '<h3>Basic Information</h3><ul>';
     
     for (const originalProperty in propertiesToDisplay) {
@@ -72,27 +87,18 @@ map.on('click', 'displacement', (e) => {
     }
     popupContent += '</ul>';
 
-    // Generate the content for the info panel
-    let infoPanelContent = '<h3>Feature Information</h3><ul>';
-    for (const originalProperty in panelProperties) {
-        if (properties.hasOwnProperty(originalProperty)) {
-            const displayName = panelProperties[originalProperty];
-            infoPanelContent += `<li><strong>${displayName}:</strong> ${properties[originalProperty]}</li>`;
-        }
-    }
-    infoPanelContent += '</ul>';
 
-    // Set the popup content and location, and add it to the map
+    // Instead of adding the popup to the map here, just set its content and location
     popup.setLngLat(e.lngLat)
-        .setHTML(popupContent)
-        .addTo(map);
+        .setHTML(popupContent);
 
-    // Set the info panel content
-    document.getElementById('feature-properties').innerHTML = infoPanelContent;
+    
 });
+
 
 map.on('mouseenter', 'displacement', () => {
     map.getCanvas().style.cursor = 'pointer';
+    popup.addTo(map); // Add the popup to the map when the cursor enters a feature
 });
 
 map.on('mouseleave', 'displacement', () => {
