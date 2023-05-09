@@ -9,7 +9,7 @@ const map = new mapboxgl.Map({
 
 
 map.on('load', () => {
-    map.addSource('displacement', {
+    map.addSource('data_map', {
         type: 'geojson',
         data: 'https://raw.githubusercontent.com/zhuoranliu22/Data_Viz_Group/main/data_group_viz.json'
     });
@@ -17,7 +17,7 @@ map.on('load', () => {
     map.addLayer({
         id: 'displacement',
         type: 'fill',
-        source: 'displacement',
+        source: 'data_map',
         layout: {},
         paint: {
             'fill-color': [
@@ -35,7 +35,40 @@ map.on('load', () => {
             
         }
     });
+
+    map.addLayer({
+        id: 'housing',
+        type: 'fill',
+        source: 'data_map',
+        layout: {},
+        paint: {
+            'fill-color': [
+                'match',
+                ['get', 'HsngCnd'],
+                'Lowest', '#F2F12D',
+                'Lower', '#EED322',
+                'Intermediate', '#E6B71E',
+                'Higher', '#DA9C20',
+                'Highest', '#CA8323',
+                '#000000' // fallback color if none of the categories match
+            ],
+            'fill-opacity': 0.8
+            
+            
+        }
+    });
 });
+
+document.getElementById("displacement").addEventListener("click", function(){
+map.setPaintProperty('DsplcRI','fill-opacity',1);
+map.setPaintProperty('HsngCnd','fill-opacity',0);
+});
+    
+document.getElementById("housing").addEventListener("click", function(){
+map.setPaintProperty('DsplcRI','fill-opacity',0);
+map.setPaintProperty('HsngCnd','fill-opacity',1);
+});
+    
 
 const popup = new mapboxgl.Popup({
     closeButton: false,
@@ -44,7 +77,8 @@ const popup = new mapboxgl.Popup({
 
 const propertiesToDisplay = {
     'NTAName': 'Name',
-    'DsplcRI': 'Displacement Risk'
+    'DsplcRI': 'Displacement Risk',
+    'HsngCnd': 'Housing Conditions'
     
 };
 
