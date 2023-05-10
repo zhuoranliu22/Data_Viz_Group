@@ -57,11 +57,11 @@ map.on('load', () => {
             'fill-color': [
                 'match',
                 ['get', 'HsngCnd'],
-                'Lowest', '#D5E8D4',
-                'Lower', '#92C47D',
-                'Intermediate', '#6AA84F',
-                'Higher', '#38761D',
-                'Highest', '#274E13',
+                'Lowest', '#4d5d53',
+                'Lower', '#729d80',
+                'Intermediate', '#738276',
+                'Higher', '#9eb08d',
+                'Highest', '#626c41',
                 '#000000' // fallback color if none of the categories match
             ],
             'fill-opacity': 0
