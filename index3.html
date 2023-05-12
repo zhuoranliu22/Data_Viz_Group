@@ -14,8 +14,10 @@
 
         #container {
             display: flex;
-            height: 100%;
+            height: 100%; /* adjust as necessary based on the height of your navbar */
+            margin-top: 0px; /* adjust as necessary based on the height of your navbar */
         }
+
 
         #map {
             flex-grow: 1;
@@ -23,7 +25,8 @@
 
         #info-panel {
             width: 300px;
-            background-color: white;
+            background-color: #fdfeff;
+            opacity: 0.6;
             padding: 20px;
             overflow-y: auto;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -54,7 +57,7 @@
         .map-overlay {
             font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
             position: absolute;
-            top: -20px;
+            top: 27px;
             left: 320px;
             width: 15%;
             padding: 20px;
@@ -64,34 +67,152 @@
             background-color: #fafbfa;
             box-shadow:0 1px 2px rgba(0, 0, 0, 0.20);
             border-radius: 3px;
-            opacity: 0.9;
-            padding: 10px;
+            opacity: 0.8;
+            padding: 30px;
             margin-bottom: 10px;
         }
+
+        /* Top navigation style */
+        ul.navbar{
+            position: flex;
+            top: 0;
+            width: 100%;
+
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            
+            background-color: #fdfeff;
+            
+        }
+
+        li{
+            float: left;
+        }
+        ul.navbar li a{
+            display: block;
+            color: #160c03;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-family:'Montserrat',sans-serif;
+            font-weight: bold;
+        }
+        ul.navbar li a:hover{
+                      color: white  ;
+                font-weight: bold;
+        background-color: #bba7cb;
+
+
+        }
+        /* .active {
+        background-color: #93BFCF;
+        } */
+
+        .variable-navbar {
+            width: 300px; /* Adjust width as necessary */
+            background-color: #fdfeff;
+            opacity: 0.8;
+            height: 100%;
+            position: flex;
+            z-index: 1; /* Sit on top */
+            top: 25px;
+            right: 30px;
+            overflow-x: hidden; /* Disable horizontal scroll */
+            padding-top: 10px; /* Place content 60px from the top */
+        }
+
+        .variable-navbar a {
+            padding: 6px 8px 6px 16px;
+            text-decoration: none;
+            font-family:'Montserrat',sans-serif;
+            font-weight: bold;
+            font-size: 22px;
+            color: #3b7bbf;
+            display: block;
+        }
+
+        .variable-navbar a:hover {
+            color: #f1aee8;
+        }
+
+        .variable-navbar a.active {
+            color: #4CAF50;
+        }
+
+        .variable-navbar p {
+            color: #333;  /* Adjust as needed */
+            font-size: 18px;  /* Adjust as needed */
+            /* color: #ca0738; */
+            font-weight: bold;
+            
+        }
+
+        .variable-navbar p {
+            margin-top: 10px;
+            margin-left: 20px;
+            margin-bottom: 60px;  /* Adjust as needed */
+            /* Other styles */
+        }
+
+        .legend {
+        background-color: #fff;
+        opacity: 0.7;
+        border-radius: 3px;
+        bottom: 80px;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        font: 15px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+        padding: 10px;
+        position: absolute;
+        z-index: 1;
+        }
+
+        
     </style>
     
 </head>
 <body>
+    <ul class="navbar">
+        <li style="float:right"><a  href="Home.html">Home</a></li>
+        <li><a class="active" href="About.html">Introduction</a></li>
+        <li><a href="index3.html">Displacement Map</a></li>
+        <li><a href="race2010_button.html">Demographic analysis</a></li>
+        <li><a href=".html">Team</a></li>
+    </ul>
     <div id="container">
-        <div id="info-panel">
+        <div id="info-panel">                 
             <h2>Feature Information</h2>
             <ul id="feature-properties"></ul>
             <div id="feature-properties">
-                <h3></h3>
+                <h3>Welcome!</h3>
                 <p>Click on an area to see more information. Use the buttons to switch between displacement index and housing conditions.</p>
             </div>
-            
+            <button id="back-button" style="display:none;">Back</button>
         </div>
-        <div id="map"></div>
-        <div class='map-overlay'>
-            <div class='map-overlay-inner'>
+        
+        <div id="map">
+            <div id="legend" class="legend"></div>
+        </div>
+        <!-- <div class='map-overlay'> -->
+            <!-- <div class='map-overlay-inner'>
                 <h3><strong>Displacement Map<strong></h3>
                 <table><tr><td>
                   <input type="radio" name="layers" id="displacement" value="DsplcRI" checked><label><strong>Diaplacement Index &nbsp; &nbsp;</strong></label><br>
                   <input type="radio" name="layers" id="housing" value="HsngCnd"><label><strong>Housing Conditions &nbsp; </strong></label><br>
                  </td>
                  </tr>
-            </div>
+            </div> -->           
+        <!-- </div> -->
+        <div id="variable-selector" class="variable-navbar">
+            <a href="#" id="displacement">Displacement Index</a>
+            <p>The level of risk residents face of being unable to remain in their homes or neighborhoods.</p>
+            <a href="#" id="housing">Housing Conditions</a>
+            <p>The characteristics of housing in a neighborhood that can either help stabilize households or lead to greater instability.</p>
+            <a href="#" id="market">Market Pressure</a>
+            <p>The broader conditions affecting neighborhoods that tend to make it harder for lower-income residents to remain or find new housing in the area.</p>
+            <a href="#" id="popu">Population Vulnerability</a> 
+            <p>The demographic and socioeconomic characteristics of a neighborhood's residents that may make them more susceptible to displacement.</p>              
         </div>
     </div>
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.js'></script>
@@ -99,3 +220,5 @@
 </body>
 
 </html>
+
+
