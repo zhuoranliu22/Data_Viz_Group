@@ -9,7 +9,6 @@ const map = new mapboxgl.Map({
 
 
 
-
 map.on('load', () => {
 
     map.addSource('data_map', {
@@ -218,31 +217,96 @@ const panelProperties = {
 //     infoPanelContent += `<p style="font-size:16px;">The Displacement Risk Index is <strong>${properties.DsplcRI}</strong>.</p>`;
 //     document.getElementById('feature-properties').innerHTML = infoPanelContent;
 // });
-document.getElementById('back-button').addEventListener('click', function() {
-    // Hide the back button
-    this.style.display = 'none';
-    // Clear the info panel
-    document.getElementById('info-panel').innerHTML = '';
-    // Show the welcome page
-    document.getElementById('feature-properties').style.display = 'block';
-});
+// document.getElementById('back-button').addEventListener('click', function() {
+//     // Hide the back button
+//     this.style.display = 'none';
+//     // Clear the info panel
+//     document.getElementById('info-panel').innerHTML = '';
+//     // Show the welcome page
+//     document.getElementById('feature-properties').style.display = 'block';
+// });
 
+        // Go back to the welcome message when the "Back" button is clicked
+    
+var originalFeatureProperties = document.getElementById("feature-properties").innerHTML;
 map.on('click', function(e) {
     var properties = map.queryRenderedFeatures(e.point)[0].properties;
     var infoPanelContent = '';
 
     // Always show the same data
-    infoPanelContent = '<h2>' + properties.NTAName + '</h2>';
-    infoPanelContent += '<p>The displacement risk index is ' + properties.DsplcRI + '</p>';
-    infoPanelContent += '<p>The displacement risk index is ' + properties.PpltnVl + '</p>';
+    infoPanelContent = '<button id="back-button" >&larr;Back</button>';
+    if (properties.NTAName !== undefined) {
+        infoPanelContent += '<h2>' + properties.NTAName + '</h2>';
+        infoPanelContent += '<div class="index"><p>' + properties.DsplcRI + '</p></div>';   
+        infoPanelContent += '<hr>';
+        infoPanelContent += '<p class="first">Housing Condition: ' + properties.HsngCnd + '</p>';
+        infoPanelContent += '<p class="second">HOUSING WITH 3+ MAINTENANCE DEFICIENCIES</p>';
+        infoPanelContent += '<p class="third">' + properties['3PlMDVC'] + '</p>';
+        infoPanelContent += '<hr class="inside">';
+        infoPanelContent += '<p class="second">HOUSING THAT IS NOT RENT-STABILIZED</p>';
+        infoPanelContent += '<p class="third">' + properties.NtRnSVC + '</p>';
+        infoPanelContent += '<hr class="inside">';
+        infoPanelContent += '<p class="second">HOUSING THAT IS NOT INCOME-RESTRICTED</p>';
+        infoPanelContent += '<p class="fourth">' + properties.NtIncmR + '%' + '</p>';
+        infoPanelContent += '<hr class="inside">';
+        infoPanelContent += '<p class="second">RENTER-OCCUPIED HOUSING UNITS</p>';
+        infoPanelContent += '<p class="fourth">' + properties.RntlHsn + '%' + '</p>';
+        infoPanelContent += '<hr>';
+
+        infoPanelContent += '<p class="first">Market Pressure: ' + properties.MrktPrs + '</p>';
+        infoPanelContent += '<p class="second">RESIDENTIAL PROPERTY PRICE APPRECIATION 2000-2020</p>';
+        infoPanelContent += '<p class="fourth">' + properties.SlsPrcA.toFixed(0) + '</p>';
+        infoPanelContent += '<hr class="inside">';
+        infoPanelContent += '<p class="second">CHANGE IN RENTS COMPARED TO CITYWIDE AVERAGE</p>';
+        infoPanelContent += '<p class="third">' + properties.ChnIRVC + '</p>';
+        infoPanelContent += '<hr class="inside">';
+        infoPanelContent += '<p class="second">ADJACENT NEIGHBORHOOD PRESSURE</p>';
+        infoPanelContent += '<p class="third">' + properties.Adjcncy + '</p>';
+        infoPanelContent += '<hr class="inside">';
+        infoPanelContent += '<p class="second">CHANGE IN POPULATION WITH A BACHELOR\'S DEGREE OR HIGHER</p>';
+        infoPanelContent += '<p class="fourth">' + properties.ChIPWBD + '</p>';
+        infoPanelContent += '<hr>';
+
+        infoPanelContent += '<p class="first">Population Vulnerability: ' + properties.PpltnVl + '</p>';
+        infoPanelContent += '<p class="second">HOUSEHOLDS WITH SEVERE RENT BURDEN COMPARED TO CITYWIDE</p>';
+        infoPanelContent += '<p class="third">' + properties.SvrRBVC + '</p>';
+        infoPanelContent += '<hr class="inside">';
+        infoPanelContent += '<p class="second">NON-WHITE POPULATION</p>';
+        infoPanelContent += '<p class="fourth">' + properties.NotWhit + '</p>';
+        infoPanelContent += '<hr class="inside">';
+        infoPanelContent += '<p class="second">POPULATION WITH INCOME BELOW 200% OF FEDERAL POVERTY RATE</p>';
+        infoPanelContent += '<p class="fourth">' + properties.Blw2xPR + '%' + '</p>';
+        infoPanelContent += '<hr class="inside">';
+        infoPanelContent += '<p class="second">LIMITED-ENGLISH SPEAKING POPULATION</p>';
+        infoPanelContent += '<p class="fourth">' + properties.LmtdEnP + '%' + '</p>';
+
+        console.log(Object.keys(properties)); 
+
+    }else {
+        infoPanelContent += '<h2>No data available for this area</h2>';
+    }
+
     // ... add more data as needed
 
+    
+    infoPanelContent += originalFeatureProperties; 
     document.getElementById('info-panel').innerHTML = infoPanelContent;
-    document.getElementById('back-button').style.display = 'block';
-});
+    document.getElementById("back-button").style.display = 'block';
+
+    document.getElementById('back-button').addEventListener('click', function () {
+        var OrgContent = '';
+        OrgContent = '<h2>Feature Information</h2>';
+        OrgContent += '<h3>Welcome!</h3>';
+        OrgContent += '<p>Click on an area to see more information. Use the right panel to switch between fields.</p>';
+        OrgContent += 'Navigate through the displacement risk map to observe the potential displacement risk across city neighborhoods in comparison to each other. Choose a neighborhood to get a detailed analysis of the elements contributing to displacement risk, which include population vulnerability, housing conditions, and market pressure, as well as the data points that make up these elements.</p>'
+        document.getElementById('info-panel').innerHTML = OrgContent;
+        
+    });
+    
+    });
 
 
-
+    
 
 // map.on('mousemove', 'displacement', (e) => {
 //     // Generate the content for the popup
@@ -361,4 +425,3 @@ setupLayerMouseEffects('displacement');
 setupLayerMouseEffects('housing');
 setupLayerMouseEffects('market');
 setupLayerMouseEffects('popu');
-

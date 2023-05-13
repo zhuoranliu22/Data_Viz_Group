@@ -25,11 +25,11 @@
 
         #info-panel {
             width: 300px;
-            background-color: #fdfeff;
+            background-color: rgb(214, 242, 246);
             opacity: 0.6;
             padding: 20px;
             overflow-y: auto;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            
             font-family: Arial, sans-serif;
         }
 
@@ -54,6 +54,28 @@
             color: #3b7bbf;
         }
 
+        #info-panel p.first{
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 40px;
+        }
+        #info-panel p.second{
+            margin-left: 15px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #0a4e0d;
+        }
+        #info-panel p.third{
+            margin-left: 15px;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        #info-panel p.fourth{
+            margin-left: 15px;
+            font-size: 20px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
         .map-overlay {
             font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
             position: absolute;
@@ -77,13 +99,14 @@
             position: flex;
             top: 0;
             width: 100%;
-
+            height: 70px; 
             list-style-type: none;
             margin: 0;
             padding: 0;
             overflow: hidden;
             
-            background-color: #fdfeff;
+            background-color: rgb(214, 242, 246);
+            opacity: 0.6;
             
         }
 
@@ -112,8 +135,8 @@
 
         .variable-navbar {
             width: 300px; /* Adjust width as necessary */
-            background-color: #fdfeff;
-            opacity: 0.8;
+            background-color: rgb(214, 242, 246);
+            opacity: 0.6;
             height: 100%;
             position: flex;
             z-index: 1; /* Sit on top */
@@ -168,7 +191,57 @@
         z-index: 1;
         }
 
-        
+        #back-button {
+        background-color: #f8faf8; 
+        border: none;
+        color: #3b7bbf;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 12px; /* Rounded corners */
+        margin-bottom: 30px;
+    }
+
+    #back-button:hover {
+        background-color: #c4e1ee; /* Darker green on hover */
+
+    }
+
+    .index {
+        font-size: 15px;
+        border-radius: 15px;
+        border: 2px solid #ebb0cd;
+        background: #f0c4c4;
+        padding: 15px;
+        margin: 4px 2px;
+        text-align: center;
+        display: inline-flex;
+        height: 5px;
+        justify-content: center; /* Center content horizontally */
+        align-items: center; /* Center content vertically */
+        width: fit-content; 
+    }   
+
+    hr {
+        border: none;
+        height: 1px;
+        color: #141111; /* Old browsers */
+        background-color: #333; /* Modern browsers */
+        margin-bottom: 40px;
+    }
+
+    hr.inside {
+        border: none;
+        height: 0.6px;
+        color: #090707; /* Old browsers */
+        margin-bottom: 10px;
+        width: 280px;
+    }
+
     </style>
     
 </head>
@@ -181,14 +254,16 @@
         <li><a href=".html">Team</a></li>
     </ul>
     <div id="container">
-        <div id="info-panel">                 
+        <div id="info-panel">  
+
             <h2>Feature Information</h2>
             <ul id="feature-properties"></ul>
             <div id="feature-properties">
                 <h3>Welcome!</h3>
-                <p>Click on an area to see more information. Use the buttons to switch between displacement index and housing conditions.</p>
+                <p>Click on an area to see more information. Use the right panel to switch between fields.</p>
+                <p>Navigate through the displacement risk map to observe the potential displacement risk across city neighborhoods in comparison to each other. Choose a neighborhood to get a detailed analysis of the elements contributing to displacement risk, which include population vulnerability, housing conditions, and market pressure, as well as the data points that make up these elements.</p>
             </div>
-            <button id="back-button" style="display:none;">Back</button>
+            
         </div>
         
         <div id="map">
