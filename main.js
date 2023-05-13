@@ -4,7 +4,7 @@ const map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/light-v11',
     center: [-74.0060, 40.7128], // Set the initial map center (longitude, latitude)
-    zoom: 10
+    zoom: 9.7
 });
 
 
