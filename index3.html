@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="assets/img/casalogo.png" rel="icon"> 
     <title>Your Map</title>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.css' rel='stylesheet' />
     <style>
@@ -260,6 +261,24 @@
             margin-bottom: 10px;
             width: 280px;
         }
+        /* #container, #page2 {
+        min-height: 100%;
+        } */
+
+        /* #page2 {
+            background: rgba(255, 255, 255, 0.6); /* Change this to suit your design */
+            /* position: relative;  /* You can also use absolute or fixed, depending on your needs */
+            /* margin-top: 50px; */
+        /* } */
+        /* #map2 {
+            position: absolute;
+            top: 100px; /* Adjust as needed */
+            /* left: 350px; Adjust as needed */
+            /* margin-bottom: 400px; */
+            /* width: 800px; */
+            /* height: 70%; */
+        /* } */ 
+    
 
     </style>
     
@@ -297,16 +316,16 @@
         <div id="map">
             <div id="legend" class="legend"></div>
         </div>
-        <!-- <div class='map-overlay'> -->
-            <!-- <div class='map-overlay-inner'>
-                <h3><strong>Displacement Map<strong></h3>
+
+        <!-- <div class='map-overlay'>
+             <div class='map-overlay-inner'> 
                 <table><tr><td>
-                  <input type="radio" name="layers" id="displacement" value="DsplcRI" checked><label><strong>Diaplacement Index &nbsp; &nbsp;</strong></label><br>
-                  <input type="radio" name="layers" id="housing" value="HsngCnd"><label><strong>Housing Conditions &nbsp; </strong></label><br>
+                    <a href="#" class="citylink" id="back_center">Take Me Back</a>
                  </td>
                  </tr>
-            </div> -->           
-        <!-- </div> -->
+            </div>           
+        </div> -->
+
         <div id="variable-selector" class="variable-navbar">
             <a href="#" id="displacement">Displacement Index</a>
             <p>The level of risk residents face of being unable to remain in their homes or neighborhoods.</p>
@@ -318,8 +337,21 @@
             <p>The demographic and socioeconomic characteristics of a neighborhood's residents that may make them more susceptible to displacement.</p>              
         </div>
     </div>
+    
+    <!-- <div id="page2" style="width: 100%;">
+        Your new content here
+        <div id="header"><h2>Demographic Change</h2></div>
+        
+        <div id="map2">
+        
+        </div>
+    </div> -->
+    
+
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.js'></script>
     <script src="main.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 </body>
 
 </html>

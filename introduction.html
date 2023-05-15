@@ -28,6 +28,40 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.js"></script>
+
+<style>
+     /* 在这里改地图的位置 */
+     #map { 
+      position:sticky; 
+      top: 0px;
+      bottom:0; 
+      width:80%;  
+      height: 400px; 
+      width: 650px;
+      padding-left: 0px;
+      padding-right: 0px;
+    
+    }
+    /* 在这里改filter的位置 */
+    .map-overlay {
+        font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+        position: absolute;
+        top: 100px;
+        left: 0px;
+        width: 15%;
+        padding: 20px;
+    }
+    
+    .map-overlay .map-overlay-inner {
+        background-color: #fff;
+        box-shadow:0 1px 2px rgba(0, 0, 0, 0.20);
+        border-radius: 3px;
+        opacity: 0.9;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+</style>
 
 </head>
 
@@ -100,11 +134,11 @@
 
               <!-- 图片的一个模板（没放图） -->
               <div class="post-img">
-                <img src="" alt="" class="img-fluid">
+                <img src="assets/img/nyc2.jpg" alt="" class="img-fluid">
               </div>
 
               <!-- 标题名 -->
-              <h2 class="title">NYC title</h2> 
+              <h2 class="title">New York City</h2> 
 
               <div class="meta-top">
                 
@@ -113,36 +147,67 @@
               <div class="content">
 
                 <p>
-                  Gentrification is a longstanding issue in New York City, which refers to the gradual transformation of 
-                  low-income or working-class neighborhoods into ones occupied by the wealthy and the middle class. 
-                  This phenomenon is often accompanied by rising rents, displacement of the poor, and cultural changes within the community.
+                  New York is a vibrant city known for its diversity, rich history, and iconic landmarks. With a population of over 8 million people, New York is one of the largest and most influential cities in the world. 
+                  The city's residents come from a wide range of cultural and ethnic backgrounds, creating a diverse and dynamic community that is unlike any other.
+                </p>  
+
+                <p>
+                  However, with the city's rapid population growth and development, 
+                  the issue of gentrification has become a pressing concern for many residents. 
+                  Gentrification refers to the process of urban renewal that occurs when more affluent residents move into historically working-class neighborhoods, 
+                  leading to rising property values, rent increases, and the displacement of long-time residents. 
                 </p>
                 <p>
-                  Gentrification began to appear in New York City in the 1960s, but in the past few decades, 
-                  it has become more widespread and pronounced.
-                  The current state of gentrification in New York City can be summarized as follows 没写完呢
+                  This phenomenon is particularly acute in New York, 
+                  where the city's unique combination of population growth, cultural diversity, and limited housing supply has created a perfect storm for displacement risk.
+              
                 </p>
                 <p>
-                  另外一段
-                  text
-                  text
+
                 </p>
-                <h3>小标题名</h3>
+                <div class="flourish-embed" data-src="story/1917072"><script src="https://public.flourish.studio/resources/embed.js"></script></div>                <p>
+                
+                </p>
+                
+
+                <div id='map'>    
+                    <div class='map-overlay'>
+                      <div class='map-overlay-inner'>
+                          <h3><strong>Demographic Change in 2020-2021<strong></h3>
+                      <table><tr><td>
+                        <input type="radio" name="layers" id="layer1" value="PPC" checked><label><strong>Population Change &nbsp; &nbsp;</strong></label><br>
+                        <input type="radio" name="layers" id="layer2" value="WNH_PPC"><label><strong>White Population &nbsp; </strong></label><br>
+                          </td>
+                          </tr>
+                      </div>
+                    </div>
+                </div> 
+                
+
+                <h3>Displacement of the Poor</h3>
                 <p>
-                 新的一段
+                  One effect of the growing housing pressure was that neighborhoods formerly considered forbidding became attractive to more affluent New Yorkers. 
+                  Places like the Lower East Side, Williamsburg, and Fort Greene all became popular residential destinations of the young professional class. With many affluent professionals moving in, 
+                  however, communities became increasingly concerned that rising rents would push existing residents out of their neighborhoods. Some community activists even began to question the desirability of community improvement, 
+                  fearing it contributes to rising rents and the displacement of low-income people.
                 </p>
                 <!-- 放了图片的例子 -->
-                <img src="assets/img/blog/blog-inside-post.jpg" class="img-fluid" alt="">
+                <img src="assets/img/intro1.png" class="img-fluid" alt="">
 
-                <h3>小标题名字</h3>
+                <h3><br><br>Displacement Risk Map</h3>
+                
+               
+                 
+
+
+
                 <p>
-                  text
-                  text
+                  Our map is designed to help you navigate and understand the dynamics of displacement risk in New York City. By providing information on areas with the highest risk of displacement, 
+                  as well as the factors contributing to these risks, we hope to empower residents, policymakers, and community organizations to take action and create a more equitable and sustainable city for all.
+                  Go to the <a href="map.html">Displacement map</a> 
                 </p>
-                <p>
-                  texttext
-                  texttext
-                </p>
+                <img src="assets/img/map.png" class="img-fluid" alt="">
+                
 
               </div><!-- End post content 结束 -->
             </article><!-- End blog post -->
@@ -155,6 +220,7 @@
     </section><!-- End Blog Details Section -->
 
   </main><!-- End #main -->
+
 
 
 
@@ -215,11 +281,11 @@
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <!-- <script src="assets/vendor/php-email-form/validate.js"></script> -->
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-
+  <script src="map.js"></script>
 </body>
 
 </html>

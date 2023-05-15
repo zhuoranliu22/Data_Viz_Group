@@ -1,6 +1,7 @@
 mapboxgl.accessToken = 'pk.eyJ1Ijoiemh1b3JhbmxpdSIsImEiOiJjbGQxbDR6M2QyN2s5M3BudnhrZGV0bTRyIn0.dG9Q884uSu_yGHLnc0KLnA';
 
 const map = new mapboxgl.Map({
+
     container: 'map',
     style: 'mapbox://styles/mapbox/light-v11',
     center: [-74.0060, 40.7128], // Set the initial map center (longitude, latitude)
@@ -425,3 +426,57 @@ setupLayerMouseEffects('displacement');
 setupLayerMouseEffects('housing');
 setupLayerMouseEffects('market');
 setupLayerMouseEffects('popu');
+
+// document.getElementById('back_center').addEventListener('click', function () {
+//     var lat,long;
+
+//     switch(e.target.id) {
+//         case "back_center": long=-74.0060; lat=40.7128; break;
+//     }
+
+//     map.flyTo({
+//         center: [long,lat],
+//         zoom: 9,
+//         speed: 0.3,
+//         pitch: 50
+//         });
+// });
+
+
+// const map_sec = new mapboxgl.Map({
+//     container: 'map2',
+//     style: 'mapbox://styles/mapbox/light-v11',
+//     center: [-74.0060, 40.7128], // Set the initial map center (longitude, latitude)
+//     zoom: 9.7
+// });
+// window.onload = function() {
+    
+//     map_sec.on('load', () => {
+//         map_sec.addSource('second', {
+//             type: 'geojson',
+//             data: 'https://raw.githubusercontent.com/zhuoranliu22/Data_Viz_Group/main/Popchange.json'
+//         });
+
+//         map_sec.addLayer({
+//             id: 'Pop_Change',
+//             type: 'fill',
+//             source: 'second',
+//             layout: {},
+//             paint: {
+//                 'fill-color': [
+//                     'match',
+//                     ['get', 'PopChange'],
+//                     '27017', '#B3CDE0',
+//                     '87546', ' #6897BB',
+//                     '108378', '#1F78B4',
+//                     '174742', '#053061',
+//                     '231374', '#011627',
+//                     '#000000' // fallback color if none of the categories match
+//                 ],
+//                 'fill-opacity': 1                   
+//             }
+//         });
+//     })
+// }
+
+
