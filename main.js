@@ -96,6 +96,38 @@ map.on('load', () => {
             'fill-opacity': 0           
         }
     });
+
+    
+    map.addSource('boroughs', {
+        type: 'geojson',
+        data: 'https://raw.githubusercontent.com/zhuoranliu22/Data_Viz_Group/main/border.json'
+    });
+
+    map.addLayer({
+        'id': 'boroughs-layer',
+        'type': 'line',
+        'source': 'boroughs',
+        'layout': {},
+        'paint': {
+            'line-color': '#33332f',
+            'line-width': 0.8
+        }
+    });
+
+    // map.addLayer({
+    //     'id': 'borough-labels',
+    //     'type': 'symbol',
+    //     'source': 'boroughs',
+    //     'layout': {
+    //         'text-field': ['get', 'boro_name'],
+    //         'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
+    //         'text-size': 14
+    //     },
+    //     'paint': {
+    //         'text-color': 'rgba(0,0,0,0.5)'
+    //     }
+    // });
+    
     var legend = document.getElementById('legend');
     legend.innerHTML = '';
     // legend.innerHTML = '<h3>Displacement Risk Index</h3>';
@@ -398,6 +430,10 @@ function setupLayerMouseEffects(layerName) {
     map.on('mousemove', layerName, (e) => {
         const properties = e.features[0].properties;
         let popupContent = '<h3>' + properties.NTAName + '</h3><ul>';
+
+        // if (properties.hasOwnProperty('boro_name')) {
+        //     popupContent += `<li>Borough: ${properties.boro_name}</li>`;
+        // }
         
         for (const originalProperty in propertiesToDisplay) {
             if (properties.hasOwnProperty(originalProperty)) {

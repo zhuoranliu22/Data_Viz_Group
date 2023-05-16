@@ -38,7 +38,7 @@ body {
 }
 
 .index-body {
-  background-image: url('/assets/img/NYC4.jpg');
+  background-image: url('NYC4.jpg');
   background-repeat: no-repeat;
   background-size: cover;
 }
