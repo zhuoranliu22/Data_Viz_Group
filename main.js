@@ -153,7 +153,7 @@ document.getElementById('market').addEventListener("click", function(){
     var legend = document.getElementById('legend');
     legend.innerHTML = '';
     var mar_grades = ['Lowest', 'Lower', 'Intermediate', 'Higher', 'Highest'];
-    var mar_colors = ['##E9DADE', '#F3BEC6', '#C88EA7', '#99627A', '#643843'];   
+    var mar_colors = ['#E9DADE', '#F3BEC6', '#C88EA7', '#99627A', '#643843'];   
     // loop through our intervals and generate a label with a colored square for each interval
     for (var i = 0; i < mar_grades.length; i++) {
         legend.innerHTML +=
