@@ -37,6 +37,14 @@ body {
   color: var(--color-default);
 }
 
+.index-body {
+  background-image: url('/assets/img/NYC4.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+/* background: url('/assets/img/nyc2.jpg') no-repeat center center; 
+  background-size: cover; */
+
 a {
   color: var(--color-primary);
   text-decoration: none;
@@ -916,30 +924,41 @@ section {
 /*--------------------------------------------------------------
 # Hero Section
 --------------------------------------------------------------*/
+/* .hero {
+  width: 1280px;
+  position: absolute;
+  height: 750px;
+  background: #fff;
+  padding: 50px 0 0 0;
+} */
+
 .hero {
-  width: 100%;
-  position: relative;
-  background: var(--color-primary);
-  padding: 60px 0 0 0;
+  width: 1280px;
+  position: absolute;
+  height: 750px;
+  padding: 200px 0 0 0;
+  
 }
 
 @media (min-width: 1365px) {
   .hero {
-    background-attachment: fixed;
+    background-attachment: relative;
   }
 }
 
 .hero h2 {
-  font-size: 48px;
+  font-size: 35px;
   font-weight: 700;
-  margin-bottom: 20px;
-  color: #fff;
+  margin-bottom: 40px;
+  color: #008374;
+  margin-left: 100PX;
 }
 
 .hero p {
-  color: rgba(255, 255, 255, 0.6);
+  color: #008374;
   font-weight: 400;
-  margin-bottom: 30px;
+  margin-bottom: 100px;
+  margin-left: 100PX;
 }
 
 .hero .btn-get-started {
@@ -951,14 +970,16 @@ section {
   padding: 14px 40px;
   border-radius: 50px;
   transition: 0.3s;
-  color: #fff;
+  color: #008374;
   background: rgba(255, 255, 255, 0.1);
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
   border: 2px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 600px;
+  margin-left: 100PX;
 }
 
 .hero .btn-get-started:hover {
-  border-color: rgba(255, 255, 255, 0.5);
+  border-color: rgba(128, 236, 169, 0.5);
 }
 
 .hero .btn-watch-video {
@@ -1107,7 +1128,11 @@ section {
   max-height: 240px;
   margin: -30px -30px 15px -30px;
   overflow: hidden;
+  height: 50px;
+  width: auto;
+  object-fit: cover; /* This will ensure the aspect ratio of the image is maintained */
 }
+
 
 .blog .posts-list .post-category {
   font-size: 16px;
@@ -1155,13 +1180,23 @@ section {
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
   padding: 30px;
   border-radius: 10px;
+  width: 1300px;
+  margin: auto;
 }
+
 
 .blog .blog-details .post-img {
   margin: -30px -30px 20px -30px;
   overflow: hidden;
   border-radius: 10px 10px 0 0;
 }
+/* .blog .blog-details .post-img { */
+  /* margin: 0 auto;  */
+  /* max-width: 50%; Adjust this to change the image size */
+  /* display: block; Make it a block element so margin: auto works */
+  /* overflow: hidden; */
+  /* border-radius: 10px 10px 0 0; */
+/* } */
 
 .blog .blog-details .title {
   font-size: 28px;
@@ -1432,4 +1467,10 @@ section {
 
 .footer .credits a {
   color: #fff;
+}
+
+.cropped-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

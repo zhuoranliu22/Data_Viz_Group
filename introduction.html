@@ -27,7 +27,7 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
-
+  <link href='https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.css' rel='stylesheet' />
   <script src="https://api.mapbox.com/mapbox-gl-js/v2.12.0/mapbox-gl.js"></script>
 
 <style>
@@ -77,18 +77,26 @@
         <!-- <img src="assets/img/logo.png" alt=""> -->
         <h1>Group7</h1>
       </a>
+     
       <!-- 导航栏 -->
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="introduction.html">Introduction</a></li>
-          <li><a href="index3.html">Displacement Map</a></li>
-          <li><a href="">Demographic Analysis</a></li>
-          <li><a href="team.html">Team</a></li>
-   
+          <li><a href="index.html">Home</a ></li>
+          <li><a href="introduction.html">Introduction</a ></li>
+          <li class="dropdown"><a href="#"><span>Demographic Analysis</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a >
+            <ul>
+              <li><a href="DA_1.html">分类1</a ></li>
+              <li><a href="DA_2.html">分类2</a ></li>
+              <li><a href="DA_3.html">分类3</a ></li>
+        
+            </ul>
+          </li>
+          <li><a href="index3.html">Displacement Map</a ></li>
+          <li><a href="data_bib.html">Data</a></li>  
+          <li><a href="team.html">Team</a ></li>
+        
         </ul>
       </nav><!-- .navbar -->
-
       <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
       <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
 
@@ -130,11 +138,12 @@
 
           <div class="col-lg-8">
 
-            <article class="blog-details">
+            <article class="blog-details custom-content">
+
 
               <!-- 图片的一个模板（没放图） -->
               <div class="post-img">
-                <img src="assets/img/nyc2.jpg" alt="" class="img-fluid">
+                <img src="assets/img/nyc.jpg" alt="" class="img-fluid">
               </div>
 
               <!-- 标题名 -->
@@ -165,24 +174,23 @@
                 <p>
 
                 </p>
-                <div class="flourish-embed" data-src="story/1917072"><script src="https://public.flourish.studio/resources/embed.js"></script></div>                <p>
+                <!-- <div class="flourish-embed" data-src="story/1917072"><script src="https://public.flourish.studio/resources/embed.js"></script></div>                <p> -->
                 
                 </p>
                 
 
-                <div id='map'>    
-                    <div class='map-overlay'>
-                      <div class='map-overlay-inner'>
-                          <h3><strong>Demographic Change in 2020-2021<strong></h3>
-                      <table><tr><td>
-                        <input type="radio" name="layers" id="layer1" value="PPC" checked><label><strong>Population Change &nbsp; &nbsp;</strong></label><br>
-                        <input type="radio" name="layers" id="layer2" value="WNH_PPC"><label><strong>White Population &nbsp; </strong></label><br>
-                          </td>
-                          </tr>
-                      </div>
-                    </div>
-                </div> 
+                <div class="flourish-embed" data-src="story/1917771" data-height="70%"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
                 
+                <!-- <div class='map-overlay'>
+                  <div class='map-overlay-inner'>
+                      <h3><strong>Demographic Change in 2020-2021<strong></h3>
+                  <table><tr><td>
+                    <input type="radio" name="layers" id="layer1" value="PPC" checked><label><strong>Population Change &nbsp; &nbsp;</strong></label><br>
+                    <input type="radio" name="layers" id="layer2" value="WNH_PPC"><label><strong>White Population &nbsp; </strong></label><br>
+                      </td>
+                      </tr>
+                  </div>
+                </div> -->
 
                 <h3>Displacement of the Poor</h3>
                 <p>
@@ -192,9 +200,12 @@
                   fearing it contributes to rising rents and the displacement of low-income people.
                 </p>
                 <!-- 放了图片的例子 -->
-                <img src="assets/img/intro1.png" class="img-fluid" alt="">
+                <div style="display: flex; justify-content: center;">
+                  <img src="assets/img/intro1.png" class="img-fluid" alt="">
+                </div>
+                
 
-                <h3><br><br>Displacement Risk Map</h3>
+                <!-- <h3><br><br>Displacement Risk Map</h3>
                 
                
                  
@@ -206,7 +217,9 @@
                   as well as the factors contributing to these risks, we hope to empower residents, policymakers, and community organizations to take action and create a more equitable and sustainable city for all.
                   Go to the <a href="map.html">Displacement map</a> 
                 </p>
-                <img src="assets/img/map.png" class="img-fluid" alt="">
+                <div style="display: flex; justify-content: center;">
+                  <img src="assets/img/map.png" class="img-fluid" alt="" width="500" height="300">
+                <div> -->
                 
 
               </div><!-- End post content 结束 -->
@@ -233,7 +246,9 @@
           <a href="index.html" class="logo d-flex align-items-center">
             <span>Group7</span>
           </a>
-          <p>Jiaxuan Fan    Zhuoran Liu</p>
+          <p>This webpage is a group assignment for CASA0003. <br>
+            The main function of this webpage is to provide a searchable displacement risk map that shows the level of displacement risk in different communities.
+            </p>
 
         </div>
 
@@ -248,16 +263,25 @@
           </ul>
         </div>
 
- 
+        <div class="col-lg-2 col-6 footer-links">
+          <h4>Team member</h4>
+          <ul>
+            <li><a href=" ">Jiaxuan Fan</a ></li>
+            <li><a href="https://github.com/zhuoranliu22">Zhuoran Liu</a ></li>
+            <li><a href="#">Xiao Jin</a ></li>
+            <li><a href="#">Yuhao Yin</a ></li>
+          </ul>
+        </div>
 
         <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
           <h4>Contact Us</h4>
           <p>
-            CASA <br>
-            London 邮编<br>
+            UCL Centre for Advanced Spatial Analysis <br>
+            First Floor, 90 Tottenham Court Road<br>
+            London W1T 4TJ<br>
             United Kingdom <br><br>
-            <strong>Phone:</strong> casa的电话<br>
-            <strong>Email:</strong> casa的邮箱<br>
+            <strong>Phone:</strong> +44 (0)20 3108 3877<br>
+            <strong>Email:</strong> casa@ucl.ac.uk<br>
           </p>
 
         </div>
@@ -267,7 +291,6 @@
 
 
   </footer><!-- End Footer -->
-  <!-- End Footer -->
 
   <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 

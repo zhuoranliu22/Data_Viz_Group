@@ -31,4 +31,25 @@ document.getElementById("layer1").addEventListener("click", function(){
     map.setPaintProperty('PPC','fill-opacity',0);
     map.setPaintProperty('WNH_PPC','fill-opacity',1);
     });
-    
+
+map.addLayer({
+    'id': 'labels',
+    'type': 'fill',
+    'source': {
+    type: 'vector',
+    url: 'mapbox://zhuoranliu.1pefjxon' },// Your Mapbox tileset Map ID,
+    'source-layer': 'Popchange-c3ut1i', // name of tilesets
+    'layout': {},
+    });
+
+var legend = document.getElementById('legend');
+legend.innerHTML = '';
+// legend.innerHTML = '<h3>Displacement Risk Index</h3>';
+var disgrades = ['Lowest', 'Lower', 'Intermediate', 'Higher', 'Highest'];
+var discolors = ['#B3CDE0', '#6897BB', '#1F78B4', '#053061', '#011627'];   
+// loop through our intervals and generate a label with a colored square for each interval
+for (var i = 0; i < disgrades.length; i++) {
+    legend.innerHTML +=
+        '<i style="background:' + discolors[i] + '; width: 14px; height: 14px; display: inline-block; margin-right: 2px;"></i> ' +
+        disgrades[i] + '<br>';
+}
